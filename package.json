@@ -1,0 +1,25 @@
+{
+  "name": "genieacs-views",
+  "version": "1.0.0",
+  "description": "This is the interface of TR-069.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/layer-quynh/Geniacs.git"
+  },
+  "keywords": [
+    "genieacs-views"
+  ],
+  "author": "quynh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/layer-quynh/Geniacs/issues"
+  },
+  "homepage": "https://github.com/layer-quynh/Geniacs#readme",
+  "dependencies": {
+    "highcharts": "^6.2.0"
+  }
+}

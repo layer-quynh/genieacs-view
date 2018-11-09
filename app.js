@@ -16,7 +16,8 @@ angular.module('genieacs', ['ngRoute'])
         });
 
         $routeProvider.when('/devices', {
-            templateUrl: 'app/views/devices/params.html'
+            templateUrl: 'app/views/devices/params.html',
+            controller: 'devicesCtrl'
         });
 
         $routeProvider.when('/graph', {

@@ -2,6 +2,6 @@ angular.module('genieacs')
 .directive('pageHeader', function() {
     return {
         restrict: 'EA',
-        templateUrl: '/app/views/directives/pageHeader.view.html'
+        templateUrl: '/app/directives/pageHeader/pageHeader.view.html'
     }
 });

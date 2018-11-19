@@ -7,22 +7,15 @@
             <div class="example">
                 <div class="container">
                     <div class="row">
-                        <div class="dropdown">
+                        <div class="dropdown" ng-click="getIDsDevice()">
                             <a data-toggle="dropdown" href="" class="listDevice">List Devices<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">FFFFFF-Generic-FFFFFF123456</a></li>
-                                <div class="divider"></div>
-                                <li><a href="#">abc</a></li>
-                                <div class="divider"></div>
-                                <li><a href="#">def</a></li>
-                                <div class="divider"></div>
-                                <li><a href="#">gh</a></li>
+                            <ul class="dropdown-menu" ng-repeat="device in devices">
+                                <li><a href="">{{device._id}}</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="submit" ng-click='onSubmit()'>Submit</button>
             <div data-ui-css-component="treeview">
                 <ul>
                   <li>

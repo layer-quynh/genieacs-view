@@ -3,7 +3,7 @@ angular.module('genieacs')
     $scope.devices = [];
 
     $scope.getDeviceIDs = function() {
-        $http.get('http://192.168.0.20:7557/devices/')
+        $http.get('http://fit5.fit-uet.tk:7557/devices/')
         .then(function successCallback(data) {
            //if(d.code == '200') {
                $scope.devices = data.data;

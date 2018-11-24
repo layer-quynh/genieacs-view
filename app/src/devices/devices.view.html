@@ -5,14 +5,12 @@
         <left-nav></left-nav>
         <div class="col-md-9">
             <div class="example">
-                <div class="container">
-                    <div class="row">
-                        <div class="dropdown" ng-click="getDeviceIDs()">
-                            <a href="" data-toggle="dropdown" href="" class="listDevice">List Devices<span class="caret"></span></a>
-                            <ul class="dropdown-menu" ng-repeat="device in devices">
-                                <li><a href="#/devices/{{device._id}}">{{device._id}}</a></li>
-                            </ul>
-                        </div>
+                <div class="container" id="menuDevices">
+                    <div class="dropdown" ng-click="getDeviceIDs()">
+                        <a data-toggle="dropdown" href="" class="listDevice">List Devices</a>
+                        <ul class="dropdown-menu" ng-repeat="device in devices">
+                            <li><a href="#/devices/{{device._id}}">{{device._id}}</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

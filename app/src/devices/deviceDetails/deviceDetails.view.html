@@ -5,52 +5,17 @@
         <left-nav></left-nav>
         <div class="col-md-9">
             <div class="example">
-                <div class="container">
-                    <div class="row">
-                        <div class="dropdown" ng-click="getIDsDevice()">
-                            <a data-toggle="dropdown" href="" class="listDevice">List Devices<span class="caret"></span></a>
-                            <ul class="dropdown-menu" ng-repeat="device in devices">
-                                <li><a href="">{{device._id}}</a></li>
-                            </ul>
-                        </div>
+                <div class="container" id="menuDevices">
+                    <div class="dropdown" ng-click="getDeviceIDs()">
+                        <a data-toggle="dropdown" href="" class="listDevice">List Devices</a>
+                        <ul class="dropdown-menu" ng-repeat="device in devices">
+                            <li><a href="#/devices/{{device._id}}">{{device._id}}</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div data-ui-css-component="treeview">
-                <ul>
-                  <li>
-                    <input type="checkbox" id="item1"/>
-                    <label for="item1">Item 1</label>
-                    <ul>
-                      <li>
-                        <input type="checkbox" id="item1.1"/>
-                        <label for="item1.1">Item 1.1</label>
-                        <ul>
-                          <li><span>Item 1.1.1</span></li>
-                          <li><span>Item 1.1.2</span></li>
-                        </ul>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="item1.2"/>
-                        <label for="item1.2">Item 1.2</label>
-                        <ul>
-                          <li><span>Item 1.2.1</span></li>
-                          <li><span>Item 1.2.2</span></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="item2"/>
-                    <label for="item2">Item 2</label>
-                    <ul>
-                      <li><span>Item 2.1</span></li>
-                      <li><span>Item 2.2</span></li>
-                      <li><span>Item 2.3</span></li>
-                      <li><span>Item 2.4</span></li>
-                    </ul>
-                  </li>
-                </ul>
+            </div><br>
+            <div id="TreeGridContainer" ej-treegrid e-dataSource="device" e-childMapping="subtasks" e-columns="columns"
+            e-editsettings="editSettings">
             </div>
         </div>
     </div> 

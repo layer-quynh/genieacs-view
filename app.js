@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('genieacs', ['ngRoute'])
+angular.module('genieacs', ['ngRoute', 'ejangular'])
     .config(['$routeProvider', function($routeProvider) {
 
         $routeProvider.when('/', {

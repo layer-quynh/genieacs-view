@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/layer-quynh/Geniacs#readme",
   "dependencies": {
+    "angular-bootstrap-grid-tree": "^0.4.0",
     "highcharts": "^6.2.0",
     "static-server": "^2.2.1"
   }

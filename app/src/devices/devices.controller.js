@@ -7,7 +7,7 @@ angular.module('genieacs')
         .then(function successCallback(data) {
            //if(d.code == '200') {
                $scope.devices = data.data;
-               console.log($scope.devices);
+               //console.log($scope.devices);
                //console.log(data.data);
            //}
         }, function errorCallback(err) {

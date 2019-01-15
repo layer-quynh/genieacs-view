@@ -5,18 +5,25 @@ angular.module('genieacs')
         $scope.device = {}
         $scope.dataEdit = {}
 
+        // Selection setting
+        $scope.selectionSettings = {
+            selectionType: "ej.TreeGrid.SelectionType.Checkbox",
+            selectionMode: "ej.TreeGrid.SelectionType.Row",
+        };
+
+        // Create columns
         var columns = [
-            { field: "taskName", headerText: "Device" },
+            { field: "taskName", headerText: "Device", showCheckbox: true },
             { field: "value", headerText: "Value" },
             { field: "writable", headerText: "Writable" }
         ];
         $scope.columns = columns;
-        $scope.editSettings = { allowAdding: true, allowEditing: true, allowDeleting: true, editMode: "cellEditing" };
+        $scope.editSettings = { allowAdding: true, allowEditing: true, allowDeleting: false, editMode: "cellEditing" };
 
         // Toolbar item
         var toolbarItems = [ej.TreeGrid.ToolbarItems.Add,
-        ej.TreeGrid.ToolbarItems.Edit,
-        ej.TreeGrid.ToolbarItems.Delete,
+        // ej.TreeGrid.ToolbarItems.Edit,
+        // ej.TreeGrid.ToolbarItems.Delete,
         ej.TreeGrid.ToolbarItems.Update,
         ej.TreeGrid.ToolbarItems.Cancel,
         ej.TreeGrid.ToolbarItems.ExpandAll,

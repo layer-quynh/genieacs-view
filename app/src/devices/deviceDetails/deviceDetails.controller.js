@@ -1,5 +1,5 @@
 angular.module('genieacs')
-    .controller('deviceDetailsCtrl', function ($scope, $routeParams, $http) {
+    .controller('deviceDetailsCtrl', function ($scope, $routeParams, $http, listDevices) {
         $scope.deviceID = $routeParams.device
         $scope.devices = []
         $scope.device = {}
@@ -32,15 +32,24 @@ angular.module('genieacs')
         $scope.toolbarSettings = { showToolbar: true, toolbarItems: toolbarItems };
 
         // Get all devices
-        $scope.getDeviceIDs = function () {
-            $http.get('http://fit5.fit-uet.tk:7557/devices/')
-                .then(function successCallback(data) {
-                    $scope.devices = data.data;
-                    //console.log($scope.devices);
-                    // console.log($scope.device)
-                }, function errorCallback(err) {
-                    console.log(err);
-                });
+        getDeviceIDs = function () {
+            listDevices.getDeviceIDs(function (data) {
+                if (data) {
+                    for (id in data) {
+                        // console.log(data[id]._id);
+                        if (data[id]._id.indexOf("_") < 0) {
+                            $scope.devices.push(data[id]);
+                        }
+                    }
+                }
+
+            })
+        }
+
+        // Click to display ID of devices
+        $scope.onClick = function() {
+            getDeviceIDs();
+            $scope.devices = [];
         }
 
         // Get device by its ID

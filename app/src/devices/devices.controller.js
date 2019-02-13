@@ -1,17 +1,25 @@
 angular.module('genieacs')
-.controller('devicesCtrl', function($scope, $http) {
-    $scope.devices = [];
+    .controller('devicesCtrl', function ($scope, listDevices) {
+        $scope.devices = [];
 
-    $scope.getDeviceIDs = function() {
-        $http.get('http://fit5.fit-uet.tk:7557/devices/')
-        .then(function successCallback(data) {
-           //if(d.code == '200') {
-               $scope.devices = data.data;
-               //console.log($scope.devices);
-               //console.log(data.data);
-           //}
-        }, function errorCallback(err) {
-           console.log(err);
-        });
-    }
-})
+        // Get all devices
+        getDeviceIDs = function () {
+            listDevices.getDeviceIDs(function (data) {
+                if (data) {
+                    for (id in data) {
+                        // console.log(data[id]._id);
+                        if (data[id]._id.indexOf("_") < 0) {
+                            $scope.devices.push(data[id]);
+                        }
+                    }
+                }
+
+            })
+        }
+
+        // Click to display ID of devices
+        $scope.onClick = function () {
+            getDeviceIDs();
+            $scope.devices = [];
+        }
+    })

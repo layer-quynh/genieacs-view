@@ -5,12 +5,6 @@ angular.module('genieacs')
         $scope.device = {}
         $scope.dataEdit = {}
 
-        // Selection setting
-        $scope.selectionSettings = {
-            selectionType: "ej.TreeGrid.SelectionType.Checkbox",
-            selectionMode: "ej.TreeGrid.SelectionType.Row",
-        };
-
         // Create columns
         var columns = [
             { field: "taskName", headerText: "Device", showCheckbox: true },
@@ -57,12 +51,11 @@ angular.module('genieacs')
             .then(function successCallback(data) {
                 $scope.Device = data.data[0];
                 $scope.device = [flatData("Device", $scope.Device)];
-                // dataCanEdit($scope.device[0]);
-                // console.log($scope.device)
             }, function errCallback(err) {
                 console.log(err);
             })
 
+        // Modify the lowest object level
         function translate(taskName, obj) {
             if (typeof obj !== 'object') {
                 obj = {}
@@ -102,14 +95,7 @@ angular.module('genieacs')
             return true;
         };
 
-        // Check the lowest object for processed object
-        function isNewLowestLevel(obj) {
-            if (obj.subtasks) {
-                return false;
-            }
-            return true;
-        }
-
+        // Load data into table
         $("#TreeGridContainer").ejTreeGrid({
             endEdit: function (args) {
                 // console.log(args.data)
@@ -132,6 +118,7 @@ angular.module('genieacs')
             }
         }); 
 
+        // Compare data in table with data from server
         function compareSubtask(taskData){
             let trancer = [];
             trancer.push(taskData.taskName);
@@ -148,19 +135,4 @@ angular.module('genieacs')
             result.splice(0,1);
             return result;
         }
-        // function dataCanEdit(obj) {
-        //     if (obj){
-        //         if (isNewLowestLevel(obj)) {
-        //             if (obj.writable) {
-        //                 console.log(obj);
-        //                 $scope.editSettings.allowEditing = true;
-        //             }
-        //             return;
-        //         } else {
-        //             for (let child in obj.subtasks) {
-        //                 dataCanEdit(obj.subtasks[child]);
-        //             }
-        //         }
-        //     }
-        // }
     })

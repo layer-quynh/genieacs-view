@@ -20,13 +20,18 @@ angular.module('genieacs', ['ngRoute', 'ejangular'])
             controller: 'devicesCtrl'
         });
 
-        $routeProvider.when('/graph', {
-            templateUrl: 'app/src/graph/graph.view.html',
-            controller: 'graphCtrl'
-        });
+        // $routeProvider.when('/graph', {
+        //     templateUrl: 'app/src/graph/graph.view.html',
+        //     controller: 'graphCtrl'
+        // });
 
         $routeProvider.when('/devices/:device', {
             templateUrl: 'app/src/devices/deviceDetails/deviceDetails.view.html',
             controller: 'deviceDetailsCtrl'
         });
+
+        $routeProvider.when('/graph/:device', {
+            templateUrl: 'app/src/graph/graph.view.html',
+            controller: 'graphCtrl'
+        })
     }])

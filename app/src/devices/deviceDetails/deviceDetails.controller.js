@@ -46,11 +46,12 @@ angular.module('genieacs')
             $scope.devices = [];
         }
 
-        // Get device by its ID
+        // Get params by its ID
         $http.get('http://fit5.fit-uet.tk:7557/devices/?query=%7B%22_id%22%3A%22' + $scope.deviceID + '%22%7D')
             .then(function successCallback(data) {
                 $scope.Device = data.data[0];
                 $scope.device = [flatData("Device", $scope.Device)];
+                console.log($scope.Device);
             }, function errCallback(err) {
                 console.log(err);
             })
@@ -98,7 +99,7 @@ angular.module('genieacs')
         // Load data into table
         $("#TreeGridContainer").ejTreeGrid({
             endEdit: function (args) {
-                // console.log(args.data)
+                console.log(args.data)
                 //console.log(compareSubtask(args.data));
                 let name = compareSubtask(args.data).join(".");
                 let value = args.data.value;
